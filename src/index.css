@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { background: #050811; color: #e6ecff; font-family: Inter, sans-serif; overflow-x: hidden; margin: 0; }
+::selection { background: rgba(0,240,255,.3); }
+::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #050811; }
+::-webkit-scrollbar-thumb { background: #1b2a4a; border-radius: 8px; }
+
+@layer components {
+  .glass { background: rgba(13,19,38,.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(56,189,248,.18); border-radius: 18px; }
+  .section-title { @apply font-display font-bold text-3xl sm:text-5xl tracking-tight; }
+  .eyebrow { @apply font-mono text-xs tracking-[0.25em] uppercase text-cyan-neon; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-display font-semibold text-obsidian bg-cyan-neon transition-transform hover:scale-[1.03] active:scale-95; box-shadow: 0 0 28px rgba(0,240,255,.45); }
+  .btn-glass { @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-display font-semibold text-white glass transition-transform hover:scale-[1.03] active:scale-95; }
+  .pill { @apply font-mono text-[11px] px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300; }
+}
+
+.scanlines::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,240,255,.05) 0 1px, transparent 1px 3px); mix-blend-mode: screen; }
+.grid-bg { background-image: linear-gradient(rgba(56,189,248,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.05) 1px, transparent 1px); background-size: 48px 48px; }
+
+.glitch { position: relative; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%; overflow: hidden; pointer-events: none; }
+.glitch::before { color: #00F0FF; transform: translate(2px,0); clip-path: inset(0 0 60% 0); animation: gl1 3.2s infinite steps(1); opacity: .7; }
+.glitch::after { color: #8B5CF6; transform: translate(-2px,0); clip-path: inset(60% 0 0 0); animation: gl2 2.7s infinite steps(1); opacity: .7; }
+@keyframes gl1 { 0%,92%,100% { clip-path: inset(0 0 100% 0); } 93% { clip-path: inset(10% 0 55% 0); } 96% { clip-path: inset(40% 0 30% 0); } }
+@keyframes gl2 { 0%,90%,100% { clip-path: inset(100% 0 0 0); } 91% { clip-path: inset(55% 0 10% 0); } 95% { clip-path: inset(25% 0 50% 0); } }
+@keyframes beam { 0% { left: 0%; } 50% { left: 100%; } 100% { left: 0%; } }
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; scroll-behavior: auto !important; } }

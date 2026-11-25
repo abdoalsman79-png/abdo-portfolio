@@ -21,11 +21,12 @@ function Card({ p, onOpen }: { p: Project; onOpen: () => void }) {
       <button ref={ref} data-testid="project-card" onClick={onOpen} onPointerMove={onMove} onPointerLeave={reset} className="glass relative w-full h-full text-left p-6 overflow-hidden block" style={{ transition: 'transform .15s ease-out', willChange: 'transform', transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: `radial-gradient(260px circle at var(--gx,50%) var(--gy,0%), ${p.accent}22, transparent 60%)` }} />
         <div className="relative">
+          {p.image && <img src={p.image} alt={p.title + ' preview'} loading="lazy" className="w-full h-36 object-cover rounded-lg mb-4 border border-white/10" />}
           <div className="font-mono text-[11px] mb-3" style={{ color: p.accent }}>{p.category.toUpperCase()}</div>
           <h3 className="font-display font-bold text-2xl mb-2">{p.title}</h3>
           <p className="text-slate-400 text-sm mb-4">{p.summary}</p>
           <div className="flex flex-wrap gap-2 mb-5">{p.stack.map((s) => <span key={s} className="pill">{s}</span>)}</div>
-          <div className="flex gap-6">{p.metrics.map((m) => (
+          <div className="flex gap-6 flex-wrap">{p.metrics.map((m) => (
             <div key={m.label}><div className="font-mono font-bold text-xl" style={{ color: p.accent }}>{m.value}</div><div className="font-mono text-[10px] text-slate-500">{m.label}</div></div>))}</div>
         </div>
       </button>
@@ -44,7 +45,7 @@ export default function Projects() {
   }, [open])
   const list = projects.filter((p) => f === 'All' || p.category === f)
   return (
-    <Section id="projects" eyebrow="// 03 · featured projects" title="Neural projects, case by case." intro="Placeholder projects for now. Edit them in portfolioData.ts.">
+    <Section id="projects" eyebrow="// 03 · featured projects" title="Neural projects, case by case." intro="Machine learning and analytics work from my Kaggle notebooks, plus the sites I have built and shipped.">
       <div className="flex flex-wrap gap-2 mb-8">
         {filters.map((x) => (
           <button key={x} data-testid="filter" onClick={() => setF(x)} className={`font-mono text-xs px-4 py-2 rounded-lg border transition-all ${f === x ? 'bg-cyan-neon text-obsidian border-cyan-neon font-bold' : 'glass text-slate-300'}`}>{x}</button>))}
@@ -59,13 +60,14 @@ export default function Projects() {
             <motion.aside data-testid="drawer" role="dialog" aria-modal="true" aria-label={open.title} initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 30, stiffness: 260 }} className="relative w-full max-w-lg h-full overflow-y-auto p-6 sm:p-8 border-l border-cyan-neon/20" style={{ background: 'rgba(8,12,26,.97)' }}>
               <button onClick={() => setOpen(null)} aria-label="Close" className="absolute top-4 right-4 p-2 rounded-lg glass"><X size={18} /></button>
               <div className="font-mono text-xs mb-2" style={{ color: open.accent }}>{open.category.toUpperCase()} · CASE STUDY</div>
+              {open.image && <img src={open.image} alt={open.title + ' preview'} className="w-full rounded-xl mb-5 border border-white/10" />}
               <h3 className="font-display font-bold text-3xl mb-3">{open.title}</h3>
               <p className="text-slate-300 mb-6">{open.summary}</p>
               <div className="grid grid-cols-2 gap-3 mb-6">{open.metrics.map((m) => <div key={m.label} className="glass p-4"><div className="font-mono font-bold text-2xl" style={{ color: open.accent }}>{m.value}</div><div className="font-mono text-[11px] text-slate-400">{m.label}</div></div>)}</div>
               <h4 className="font-mono text-xs text-slate-400 mb-3">ARCHITECTURE BREAKDOWN</h4>
               <ol className="space-y-3 mb-6">{open.architecture.map((a, i) => <li key={i} className="flex gap-3 text-sm text-slate-300"><span className="font-mono text-cyan-neon">0{i + 1}</span>{a}</li>)}</ol>
               <div className="flex flex-wrap gap-2 mb-8">{open.stack.map((s) => <span key={s} className="pill">{s}</span>)}</div>
-              <div className="flex gap-3"><a href={open.demo} className="btn-primary !py-2.5 text-sm"><ExternalLink size={16} /> Live demo</a><a href={open.repo} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a></div>
+              <div className="flex gap-3"><a href={open.demo} target="_blank" rel="noreferrer" className="btn-primary !py-2.5 text-sm"><ExternalLink size={16} /> {open.demoLabel ?? 'Live demo'}</a>{open.repo && <a href={open.repo} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a>}</div>
             </motion.aside>
           </motion.div>)}
       </AnimatePresence>

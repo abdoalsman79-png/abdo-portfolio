@@ -37,7 +37,7 @@ export interface Project {
 export const projects: Project[] = [
   // Machine learning: real public notebooks from kaggle.com/abdoalsman
   {
-    id: 'bangalore', title: 'Bangalore Real Estate Price Modeling', category: 'AI & ML', accent: '#00F0FF',
+    id: 'bangalore', image: '/projects/bangalore.jpg', title: 'Bangalore Real Estate Price Modeling', category: 'AI & ML', accent: '#00F0FF',
     summary: 'Predicts house prices from location, size, bedrooms and bathrooms. Compares a linear baseline with a tuned Random Forest.',
     stack: ['Python', 'scikit-learn', 'Pandas', 'Seaborn'],
     metrics: [{ label: 'Models compared', value: '2' }, { label: 'Hyperparameter search', value: 'Random' }],
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     demo: 'https://www.kaggle.com/code/abdoalsman/bangalore-real-estate-price-modeling', demoLabel: 'View notebook on Kaggle',
   },
   {
-    id: 'medical', title: 'Medical Insurance Cost Analysis & Prediction', category: 'AI & ML', accent: '#8B5CF6',
+    id: 'medical', image: '/projects/medical.jpg', title: 'Medical Insurance Cost Analysis & Prediction', category: 'AI & ML', accent: '#8B5CF6',
     summary: 'Finds what drives individual medical insurance charges, with a focus on smoking status, and prepares the data for prediction.',
     stack: ['Python', 'Pandas', 'scikit-learn', 'Seaborn'],
     metrics: [{ label: 'Target', value: 'Charges' }, { label: 'Focus', value: 'Smoker impact' }],
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     demo: 'https://www.kaggle.com/code/abdoalsman/medical-insurance-cost-analysis-prediction', demoLabel: 'View notebook on Kaggle',
   },
   {
-    id: 'phones', title: 'Used Phones Price Prediction & Advanced EDA', category: 'AI & ML', accent: '#10B981',
+    id: 'phones', image: '/projects/phones.jpg', title: 'Used Phones Price Prediction & Advanced EDA', category: 'AI & ML', accent: '#10B981',
     summary: 'Deep exploratory analysis of a one-million-row used phone market dataset, preparing features to predict resale price.',
     stack: ['Python', 'Pandas', 'scikit-learn', 'Matplotlib'],
     metrics: [{ label: 'Dataset', value: '1M rows' }, { label: 'Target', value: 'Resale price' }],
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     demo: 'https://www.kaggle.com/code/abdoalsman/used-phones-price-prediction-advanced-eda', demoLabel: 'View notebook on Kaggle',
   },
   {
-    id: 'churn', title: 'Churn Prediction Data Pipeline', category: 'AI & ML', accent: '#00F0FF',
+    id: 'churn', image: '/projects/churn.jpg', title: 'Churn Prediction Data Pipeline', category: 'AI & ML', accent: '#00F0FF',
     summary: 'A cleaning and feature engineering pipeline for telecom customer churn, built to feed a classifier.',
     stack: ['Python', 'Pandas', 'NumPy', 'Seaborn'],
     metrics: [{ label: 'Domain', value: 'Telecom churn' }, { label: 'Stage', value: 'Data pipeline' }],
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   },
   // Data analytics: real EDA notebooks. Swap in dashboard projects here when ready.
   {
-    id: 'omnichannel', title: 'Omnichannel Sales Performance EDA', category: 'Data Analytics', accent: '#8B5CF6',
+    id: 'omnichannel', image: '/projects/omnichannel.jpg', title: 'Omnichannel Sales Performance EDA', category: 'Data Analytics', accent: '#8B5CF6',
     summary: 'Combines Cairo, Giza and nationwide sales files to compare revenue by region, channel, category and segment.',
     stack: ['Python', 'Pandas', 'Excel', 'Seaborn'],
     metrics: [{ label: 'Sources', value: '3 Excel files' }, { label: 'Cuts', value: 'Region, channel' }],
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     demo: 'https://www.kaggle.com/code/abdoalsman/omnichannel-sales-performance-eda', demoLabel: 'View notebook on Kaggle',
   },
   {
-    id: 'student', title: 'Student Course Enrollments & Performance', category: 'Data Analytics', accent: '#10B981',
+    id: 'student', image: '/projects/students.jpg', title: 'Student Course Enrollments & Performance', category: 'Data Analytics', accent: '#10B981',
     summary: 'Cleans a large university enrollment table and analyses course demand, delivery methods and grades.',
     stack: ['Python', 'Pandas', 'Excel', 'Matplotlib'],
     metrics: [{ label: 'Source', value: 'One big table' }, { label: 'Focus', value: 'Enrollment, grades' }],
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     demo: 'https://www.kaggle.com/code/abdoalsman/student-course-enrollments-and-performance-dataset', demoLabel: 'View notebook on Kaggle',
   },
   {
-    id: 'sf', title: 'SF Employees Compensation: Cleaning & Insights', category: 'Data Analytics', accent: '#00F0FF',
+    id: 'sf', image: '/projects/sf-employees.jpg', title: 'SF Employees Compensation: Cleaning & Insights', category: 'Data Analytics', accent: '#00F0FF',
     summary: 'Cleans San Francisco public employee pay data and pulls out job-title and take-home insights.',
     stack: ['Python', 'Pandas', 'Matplotlib'],
     metrics: [{ label: 'Focus', value: 'Pay and benefits' }, { label: 'Step', value: 'Cleaning' }],
@@ -95,7 +95,7 @@ export const projects: Project[] = [
   },
   // Dashboard projects: swap in real dashboards and links here when ready.
   {
-    id: 'ecom-dash', title: 'E-commerce Sales Performance Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
+    id: 'ecom-dash', image: '/projects/ecom-dash.jpg', title: 'E-commerce Sales Performance Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
     summary: 'Executive Power BI dashboard tracking revenue, orders, average order value and top categories across regions and months.',
     stack: ['Power BI', 'DAX', 'SQL', 'Excel'],
     metrics: [{ label: 'Revenue visibility', value: '+18%' }, { label: 'Report time', value: '-6 hrs/wk' }],
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     demo: '',
   },
   {
-    id: 'marketing-roi', title: 'Marketing Campaign ROI Tracker', category: 'Data Analytics', accent: '#00F0FF',
+    id: 'marketing-roi', image: '/projects/marketing-roi.jpg', title: 'Marketing Campaign ROI Tracker', category: 'Data Analytics', accent: '#00F0FF',
     summary: 'Tableau dashboard comparing spend, conversions and return across paid, email and social campaigns.',
     stack: ['Tableau', 'SQL', 'Python', 'Google Sheets'],
     metrics: [{ label: 'Channels tracked', value: '6' }, { label: 'Wasted spend found', value: '~12%' }],
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     demo: '',
   },
   {
-    id: 'logistics-kpi', title: 'Logistics & Supply Chain KPI Dashboard', category: 'Data Analytics', accent: '#10B981',
+    id: 'logistics-kpi', image: '/projects/logistics-kpi.jpg', title: 'Logistics & Supply Chain KPI Dashboard', category: 'Data Analytics', accent: '#10B981',
     summary: 'Operations dashboard for on-time delivery, delivery cost per order, stock levels and carrier performance.',
     stack: ['Power BI', 'SQL', 'Power Query', 'Excel'],
     metrics: [{ label: 'On-time delivery', value: '+9 pts' }, { label: 'KPIs monitored', value: '14' }],
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     demo: '',
   },
   {
-    id: 'telecom-churn-dash', title: 'Telecom Churn Analysis Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
+    id: 'telecom-churn-dash', image: '/projects/telecom-churn-dash.jpg', title: 'Telecom Churn Analysis Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
     summary: 'Interactive dashboard showing who churns and why, by contract, tenure, services and monthly charges.',
     stack: ['Power BI', 'Python', 'Pandas', 'SQL'],
     metrics: [{ label: 'Segments compared', value: '12' }, { label: 'Top risk group', value: 'Month-to-month' }],

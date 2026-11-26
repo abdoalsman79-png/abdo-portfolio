@@ -7,6 +7,9 @@ export const profile = {
   email: 'hello@example.com', // TODO: replace with your real email
   github: 'https://github.com/abdoalsman79-png',
   linkedin: 'https://www.linkedin.com/in/abdelrahman-alaa-52399a384/',
+  whatsapp: 'https://wa.me/201281110819',
+  whatsappNumber: '+20 128 111 0819',
+  kaggle: 'https://www.kaggle.com/abdoalsman',
   cvUrl: '#sandbox',
   headline: 'Bridging Raw Data, Artificial Intelligence & Interactive Design.',
   subtitle:
@@ -230,7 +233,7 @@ export const datasets = [
 export const terminalResponses: Record<string, string[]> = {
   help: ['Available commands:', '  help      show this list', '  skills    what I work with', '  socials   where to find me', '  hire      start a project together', '  whoami    short intro', '  clear     clear the screen'],
   skills: ['> Machine Learning ........ 88%', '> Data Visualization ...... 90%', '> SQL / Python ............ 92%', '> React / Next.js ......... 85%', '> 3D WebGL ............... 74%'],
-  socials: [`GitHub   : ${profile.github}`, `LinkedIn : ${profile.linkedin}`],
+  socials: [`GitHub   : ${profile.github}`, `LinkedIn : ${profile.linkedin}`, `Kaggle   : ${profile.kaggle}`, `WhatsApp : ${profile.whatsapp}`],
   hire: ['Opening channel... done.', 'I am open to AI, data and front-end work.', 'Use the form on the left or connect on LinkedIn.'],
   whoami: [`${profile.name} // AI Engineer, Data Analyst, Front-End Developer // ${profile.location}`],
 }

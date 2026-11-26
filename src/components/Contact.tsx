@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Send, GitBranch, Link2 } from 'lucide-react'
+import { Send, GitBranch, Link2, MessageCircle, BarChart3 } from 'lucide-react'
 import Section from './Section'
 import { profile, terminalResponses } from '../portfolioData'
 
@@ -49,9 +49,11 @@ export default function Contact() {
           <input name="email" required type="email" placeholder="Your email" className={field} aria-label="Your email" />
           <textarea name="message" required rows={5} placeholder="What are we building?" className={field} aria-label="Message" />
           <button className="btn-primary" type="submit"><Send size={18} /> {sent ? 'Opening your mail app...' : 'Transmit message'}</button>
-          <div className="flex gap-3 pt-1">
+          <div className="flex flex-wrap gap-3 pt-1">
             <a href={profile.github} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a>
             <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><Link2 size={16} /> LinkedIn</a>
+            <a href={profile.kaggle} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><BarChart3 size={16} /> Kaggle</a>
+            <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><MessageCircle size={16} /> WhatsApp</a>
           </div>
         </form>
         <Terminal />

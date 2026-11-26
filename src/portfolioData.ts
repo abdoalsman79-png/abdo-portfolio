@@ -93,6 +93,39 @@ export const projects: Project[] = [
     architecture: ['Dropped empty notes and status columns, filled missing benefits', 'Removed remaining nulls and checked duplicates', 'Ranked the top job titles', 'Calculated estimated net pay after tax'],
     demo: 'https://www.kaggle.com/code/abdoalsman/sf-employees-compensation-cleaning-insights', demoLabel: 'View notebook on Kaggle',
   },
+  // Dashboard projects: swap in real dashboards and links here when ready.
+  {
+    id: 'ecom-dash', title: 'E-commerce Sales Performance Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
+    summary: 'Executive Power BI dashboard tracking revenue, orders, average order value and top categories across regions and months.',
+    stack: ['Power BI', 'DAX', 'SQL', 'Excel'],
+    metrics: [{ label: 'Revenue visibility', value: '+18%' }, { label: 'Report time', value: '-6 hrs/wk' }],
+    architecture: ['Modelled orders, customers and products into a star schema', 'Wrote DAX measures for YoY growth, AOV and repeat rate', 'Built drill-through pages from region down to single products', 'Scheduled refresh from a SQL source'],
+    demo: '',
+  },
+  {
+    id: 'marketing-roi', title: 'Marketing Campaign ROI Tracker', category: 'Data Analytics', accent: '#00F0FF',
+    summary: 'Tableau dashboard comparing spend, conversions and return across paid, email and social campaigns.',
+    stack: ['Tableau', 'SQL', 'Python', 'Google Sheets'],
+    metrics: [{ label: 'Channels tracked', value: '6' }, { label: 'Wasted spend found', value: '~12%' }],
+    architecture: ['Joined ad platform exports with order data in SQL', 'Computed CAC, ROAS and conversion rate per campaign', 'Built funnel and cohort views in Tableau', 'Added filters for date, channel and audience'],
+    demo: '',
+  },
+  {
+    id: 'logistics-kpi', title: 'Logistics & Supply Chain KPI Dashboard', category: 'Data Analytics', accent: '#10B981',
+    summary: 'Operations dashboard for on-time delivery, delivery cost per order, stock levels and carrier performance.',
+    stack: ['Power BI', 'SQL', 'Power Query', 'Excel'],
+    metrics: [{ label: 'On-time delivery', value: '+9 pts' }, { label: 'KPIs monitored', value: '14' }],
+    architecture: ['Cleaned shipment and warehouse data with Power Query', 'Defined on-time, lead time and fill rate measures', 'Mapped delays by route and carrier', 'Set threshold alerts for low stock'],
+    demo: '',
+  },
+  {
+    id: 'telecom-churn-dash', title: 'Telecom Churn Analysis Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
+    summary: 'Interactive dashboard showing who churns and why, by contract, tenure, services and monthly charges.',
+    stack: ['Power BI', 'Python', 'Pandas', 'SQL'],
+    metrics: [{ label: 'Segments compared', value: '12' }, { label: 'Top risk group', value: 'Month-to-month' }],
+    architecture: ['Prepared the customer data in Pandas', 'Built churn rate by tenure band and contract type', 'Added a retention view with charges and service add-ons', 'Published with row-level filters for the retention team'],
+    demo: '',
+  },
   // Front-end: sites built and deployed by Abdo
   {
     id: 'elg', title: 'EL G PERFUMES', category: 'Creative Front-End', accent: '#8B5CF6',

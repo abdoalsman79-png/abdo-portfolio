@@ -67,7 +67,7 @@ export default function Projects() {
               <h4 className="font-mono text-xs text-slate-400 mb-3">ARCHITECTURE BREAKDOWN</h4>
               <ol className="space-y-3 mb-6">{open.architecture.map((a, i) => <li key={i} className="flex gap-3 text-sm text-slate-300"><span className="font-mono text-cyan-neon">0{i + 1}</span>{a}</li>)}</ol>
               <div className="flex flex-wrap gap-2 mb-8">{open.stack.map((s) => <span key={s} className="pill">{s}</span>)}</div>
-              <div className="flex gap-3"><a href={open.demo} target="_blank" rel="noreferrer" className="btn-primary !py-2.5 text-sm"><ExternalLink size={16} /> {open.demoLabel ?? 'Live demo'}</a>{open.repo && <a href={open.repo} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a>}</div>
+              <div className="flex gap-3">{open.demo && <a href={open.demo} target="_blank" rel="noreferrer" className="btn-primary !py-2.5 text-sm"><ExternalLink size={16} /> {open.demoLabel ?? "Live demo"}</a>}{open.repo && <a href={open.repo} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a>}</div>
             </motion.aside>
           </motion.div>)}
       </AnimatePresence>

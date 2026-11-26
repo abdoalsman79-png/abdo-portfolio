@@ -32,7 +32,7 @@ export const skills = [
 export type Category = 'AI & ML' | 'Data Analytics' | 'Creative Front-End'
 export interface Project {
   id: string; title: string; category: Category; summary: string; stack: string[]
-  metrics: { label: string; value: string }[]; architecture: string[]; demo: string; demoLabel?: string; repo?: string; image?: string; accent: string
+  metrics: { label: string; value: string }[]; architecture: string[]; demo: string; demoLabel?: string; repo?: string; image?: string; gallery?: string[]; accent: string
 }
 export const projects: Project[] = [
   // Machine learning: real public notebooks from kaggle.com/abdoalsman
@@ -93,37 +93,86 @@ export const projects: Project[] = [
     architecture: ['Dropped empty notes and status columns, filled missing benefits', 'Removed remaining nulls and checked duplicates', 'Ranked the top job titles', 'Calculated estimated net pay after tax'],
     demo: 'https://www.kaggle.com/code/abdoalsman/sf-employees-compensation-cleaning-insights', demoLabel: 'View notebook on Kaggle',
   },
-  // Dashboard projects: swap in real dashboards and links here when ready.
+  // Dashboard projects: REAL work from Abdo's own project files (screenshots in public/projects/da).
+  // Figures below are read from the dashboards themselves. Tool names were inferred from the screenshots.
   {
-    id: 'ecom-dash', image: '/projects/ecom-dash.jpg', title: 'E-commerce Sales Performance Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
-    summary: 'Executive Power BI dashboard tracking revenue, orders, average order value and top categories across regions and months.',
-    stack: ['Power BI', 'DAX', 'SQL', 'Excel'],
-    metrics: [{ label: 'Revenue visibility', value: '+18%' }, { label: 'Report time', value: '-6 hrs/wk' }],
-    architecture: ['Modelled orders, customers and products into a star schema', 'Wrote DAX measures for YoY growth, AOV and repeat rate', 'Built drill-through pages from region down to single products', 'Scheduled refresh from a SQL source'],
-    demo: '',
+    id: 'supply-chain', title: 'Supply Chain Analysis Dashboard', image: '/projects/da/supply-chain-0.jpg', category: 'Data Analytics', accent: '#F59E0B',
+    summary: 'Multi-page Power BI report on sales, profit, delivery status and late orders across years, regions, departments and customer segments.',
+    stack: ['Power BI', 'DAX', 'Data Modelling'],
+    metrics: [{ label: 'Total sales', value: '36.78M' }, { label: 'Total orders', value: '66K' }],
+    architecture: ['Overview page with sales by year, department, region map and delivery status', 'Sales & Profit page with profit by category and a category bubble chart', 'Products and Customer pages with top 10 products by sales and quantity', 'Orders page tracking late vs on-time orders and average shipping days'],
+    gallery: ['/projects/da/supply-chain-1.jpg', '/projects/da/supply-chain-2.jpg', '/projects/da/supply-chain-3.jpg'], demo: '',
   },
   {
-    id: 'marketing-roi', image: '/projects/marketing-roi.jpg', title: 'Marketing Campaign ROI Tracker', category: 'Data Analytics', accent: '#00F0FF',
-    summary: 'Tableau dashboard comparing spend, conversions and return across paid, email and social campaigns.',
-    stack: ['Tableau', 'SQL', 'Python', 'Google Sheets'],
-    metrics: [{ label: 'Channels tracked', value: '6' }, { label: 'Wasted spend found', value: '~12%' }],
-    architecture: ['Joined ad platform exports with order data in SQL', 'Computed CAC, ROAS and conversion rate per campaign', 'Built funnel and cohort views in Tableau', 'Added filters for date, channel and audience'],
-    demo: '',
+    id: 'cycles-sales', title: 'Cycles Sales & Product Dashboard', image: '/projects/da/cycles-sales-0.jpg', category: 'Data Analytics', accent: '#00F0FF',
+    summary: 'Power BI sales report with orders by year, monthly trends, product sales by category, a territory map and drill-through tooltips.',
+    stack: ['Power BI', 'DAX', 'Maps', 'Tooltips'],
+    metrics: [{ label: 'Total due', value: '$123M' }, { label: 'Orders', value: '31K' }],
+    architecture: ['KPI row for total due, orders, subtotal, freight and YoY growth', 'Orders by year and sales by month compared across years', 'Product sales by category and sales by territory map', 'Hover tooltips that break a product sale down by sub-category and country'],
+    gallery: ['/projects/da/cycles-sales-1.jpg', '/projects/da/cycles-sales-2.jpg'], demo: '',
   },
   {
-    id: 'logistics-kpi', image: '/projects/logistics-kpi.jpg', title: 'Logistics & Supply Chain KPI Dashboard', category: 'Data Analytics', accent: '#10B981',
-    summary: 'Operations dashboard for on-time delivery, delivery cost per order, stock levels and carrier performance.',
-    stack: ['Power BI', 'SQL', 'Power Query', 'Excel'],
-    metrics: [{ label: 'On-time delivery', value: '+9 pts' }, { label: 'KPIs monitored', value: '14' }],
-    architecture: ['Cleaned shipment and warehouse data with Power Query', 'Defined on-time, lead time and fill rate measures', 'Mapped delays by route and carrier', 'Set threshold alerts for low stock'],
-    demo: '',
+    id: 'bikes-store', title: 'Bikes Store Sales Dashboard', image: '/projects/da/bikes-store-0.jpg', category: 'Data Analytics', accent: '#EC4899',
+    summary: 'Power BI report with a home page and separate sales, product and customer views, including year-over-year and month-over-month growth tables.',
+    stack: ['Power BI', 'DAX', 'Navigation'],
+    metrics: [{ label: 'Total sales', value: '$29M' }, { label: 'Customers', value: '18K' }],
+    architecture: ['Landing page with sales, quantity, orders, customers, products and AOV', 'Sales overview with category split and top products by sales', 'Products overview with yearly and monthly growth versus last year', 'Page navigation buttons and country and month filters'],
+    gallery: ['/projects/da/bikes-store-1.jpg', '/projects/da/bikes-store-2.jpg', '/projects/da/bikes-store-3.jpg'], demo: '',
   },
   {
-    id: 'telecom-churn-dash', image: '/projects/telecom-churn-dash.jpg', title: 'Telecom Churn Analysis Dashboard', category: 'Data Analytics', accent: '#8B5CF6',
-    summary: 'Interactive dashboard showing who churns and why, by contract, tenure, services and monthly charges.',
-    stack: ['Power BI', 'Python', 'Pandas', 'SQL'],
-    metrics: [{ label: 'Segments compared', value: '12' }, { label: 'Top risk group', value: 'Month-to-month' }],
-    architecture: ['Prepared the customer data in Pandas', 'Built churn rate by tenure band and contract type', 'Added a retention view with charges and service add-ons', 'Published with row-level filters for the retention team'],
+    id: 'call-center', title: 'Call Center Analysis Dashboard', image: '/projects/da/call-center-0.jpg', category: 'Data Analytics', accent: '#00F0FF',
+    summary: 'Call center performance report covering answer rate, resolution rate, speed of answer, handle time and satisfaction by agent, topic, day and hour.',
+    stack: ['Power BI', 'Excel', 'Pivot Tables'],
+    metrics: [{ label: 'Calls analysed', value: '5,000' }, { label: 'Resolution rate', value: '90%' }],
+    architecture: ['KPI cards for answer rate, resolution rate, ASA, AHT and satisfaction', 'Calls by topic, by day, by month and by hour', 'Average handle time and satisfaction rating per agent', 'Excel pivot version and a second dark-themed report layout'],
+    gallery: ['/projects/da/call-center-1.jpg', '/projects/da/call-center-2.jpg', '/projects/da/call-center-3.jpg'], demo: '',
+  },
+  {
+    id: 'hr-performance', title: 'HR Employee Performance Dashboard', image: '/projects/da/hr-performance-0.jpg', category: 'Data Analytics', accent: '#F59E0B',
+    summary: 'Bilingual HR dashboard on headcount, salary, tenure and performance change between 2019 and 2020 by location, department and job title.',
+    stack: ['Power BI', 'DAX', 'Arabic RTL'],
+    metrics: [{ label: 'Employees', value: '94' }, { label: 'Improved / declined', value: '27 / 62' }],
+    architecture: ['KPI row for employees, total salary, average salary, age and experience', 'Headcount by department, location and gender', 'Performance 2019 vs 2020 by location, department and job title', 'Min, max and average salary by location, education and gender'],
+    gallery: ['/projects/da/hr-performance-1.jpg', '/projects/da/hr-performance-2.jpg'], demo: '',
+  },
+  {
+    id: 'recruitment', title: 'Recruitment Analysis Dashboard', image: '/projects/da/recruitment-0.jpg', category: 'Data Analytics', accent: '#10B981',
+    summary: 'Hiring funnel report with applications, interview stages, time to hire, decline reasons, source of applicants and recruitment cost.',
+    stack: ['Power BI', 'Excel', 'Funnel Charts'],
+    metrics: [{ label: 'Applications', value: '50' }, { label: 'Days to hire', value: '37.4' }],
+    architecture: ['Funnel from application to phone interview, onsite, offer and hire', 'Average time per recruitment stage', 'Applications by sector and by source, plus decline reasons', 'Internal, external and total cost with cost per hire'],
+    gallery: ['/projects/da/recruitment-1.jpg', '/projects/da/recruitment-2.jpg'], demo: '',
+  },
+  {
+    id: 'social-media', title: 'Social Media Analysis Dashboard', image: '/projects/da/social-media-0.jpg', category: 'Data Analytics', accent: '#EC4899',
+    summary: 'Compares Facebook, Instagram, LinkedIn and X by impressions, reach, likes and new fans, with weekly trends and platform slicers.',
+    stack: ['Excel', 'Pivot Tables', 'Slicers'],
+    metrics: [{ label: 'Impressions', value: '2.34M' }, { label: 'Post reach', value: '1.64M' }],
+    architecture: ['KPI cards for new fans, impressions, likes and post reach', 'Weekly impressions line chart by platform', 'Impressions and reach by platform with a combined overview chart', 'Platform and week slicers plus a summary table with response and engagement rate'],
+    gallery: ['/projects/da/social-media-1.jpg', '/projects/da/social-media-2.jpg'], demo: '',
+  },
+  {
+    id: 'cookies', title: 'Cookies Sales Report', image: '/projects/da/cookies-0.jpg', category: 'Data Analytics', accent: '#F59E0B',
+    summary: 'Sales report for a cookie business: sales, cost, profit and quantity by cookie type, state, customer and month.',
+    stack: ['Power BI', 'DAX'],
+    metrics: [{ label: 'Total sales', value: '£4.69M' }, { label: 'Total profit', value: '£2.72M' }],
+    architecture: ['KPI cards for sales, cost, profit and quantity', 'Total sales and orders by cookie type', 'Order count by state and orders by customer', 'Year, quarter and month slicers'],
+    gallery: ['/projects/da/cookies-1.jpg'], demo: '',
+  },
+  {
+    id: 'sales-profit', title: 'Sales & Profit Analysis (Excel)', image: '/projects/da/sales-profit-0.jpg', category: 'Data Analytics', accent: '#10B981',
+    summary: 'Excel sales dashboard plus a pivot-based profit analysis, with slicers for region, quarter and year.',
+    stack: ['Excel', 'Pivot Tables', 'Slicers', 'Conditional Formatting'],
+    metrics: [{ label: 'Total profit', value: '£286K' }, { label: 'Years covered', value: '2015-2018' }],
+    architecture: ['Sales by subcategory, by category and year, by month and by region', 'Profit by category, sub-category and month in pivot tables', 'Profit and order counts with trend arrows and data bars', 'Region, quarter and year slicers'],
+    gallery: ['/projects/da/sales-profit-1.jpg'], demo: '',
+  },
+  {
+    id: 'hr-analytics', title: 'HR Analytics Dashboard (Excel)', image: '/projects/da/hr-analytics-0.jpg', category: 'Data Analytics', accent: '#00F0FF',
+    summary: 'Excel dashboard on employment type, employee status, education, branch and yearly hiring for a 200 person company.',
+    stack: ['Excel', 'Pivot Charts', 'Dashboards'],
+    metrics: [{ label: 'Employees', value: '200' }, { label: 'Branches', value: '5' }],
+    architecture: ['Employment type by department', 'Employee status: active, terminated and on leave', 'Employee count by education and by branch', 'Hires per year and total bonus by department'],
     demo: '',
   },
   // Front-end: sites built and deployed by Abdo

@@ -21,7 +21,7 @@ function Card({ p, onOpen }: { p: Project; onOpen: () => void }) {
       <button ref={ref} data-testid="project-card" onClick={onOpen} onPointerMove={onMove} onPointerLeave={reset} className="glass relative w-full h-full text-left p-6 overflow-hidden block" style={{ transition: 'transform .15s ease-out', willChange: 'transform', transformStyle: 'preserve-3d' }}>
         <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: `radial-gradient(260px circle at var(--gx,50%) var(--gy,0%), ${p.accent}22, transparent 60%)` }} />
         <div className="relative">
-          {p.image && <img src={p.image} alt={p.title + ' preview'} loading="lazy" className="w-full h-36 object-cover rounded-lg mb-4 border border-white/10" />}
+          {p.image && <img src={p.image} alt={p.title + ' preview'} loading="lazy" className="w-full h-36 object-cover object-top rounded-lg mb-4 border border-white/10" />}
           <div className="font-mono text-[11px] mb-3" style={{ color: p.accent }}>{p.category.toUpperCase()}</div>
           <h3 className="font-display font-bold text-2xl mb-2">{p.title}</h3>
           <p className="text-slate-400 text-sm mb-4">{p.summary}</p>
@@ -67,6 +67,7 @@ export default function Projects() {
               <h4 className="font-mono text-xs text-slate-400 mb-3">ARCHITECTURE BREAKDOWN</h4>
               <ol className="space-y-3 mb-6">{open.architecture.map((a, i) => <li key={i} className="flex gap-3 text-sm text-slate-300"><span className="font-mono text-cyan-neon">0{i + 1}</span>{a}</li>)}</ol>
               <div className="flex flex-wrap gap-2 mb-8">{open.stack.map((s) => <span key={s} className="pill">{s}</span>)}</div>
+              {open.gallery && open.gallery.length > 0 && <div className="mb-6"><div className="font-mono text-[11px] text-slate-500 mb-3">MORE SCREENS</div><div className="grid gap-3">{open.gallery.map((g, i) => <img key={g} src={g} alt={open.title + ' screen ' + (i + 2)} loading="lazy" className="w-full rounded-xl border border-white/10" />)}</div></div>}
               <div className="flex gap-3">{open.demo && <a href={open.demo} target="_blank" rel="noreferrer" className="btn-primary !py-2.5 text-sm"><ExternalLink size={16} /> {open.demoLabel ?? "Live demo"}</a>}{open.repo && <a href={open.repo} target="_blank" rel="noreferrer" className="btn-glass !py-2.5 text-sm"><GitBranch size={16} /> GitHub</a>}</div>
             </motion.aside>
           </motion.div>)}
